@@ -28,7 +28,7 @@ def group_norm(x, G=32, eps=1e-5, scope='group_norm') :
 from ops import *
   x = conv(x)
   x = group_norm(x) 
-``
+```
 
 ## Normalization function
 ![norm](./assests/norm.png)
