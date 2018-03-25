@@ -21,5 +21,8 @@ from ops import *
 ### Sensitivity to batch sizes (ResNet 50)
 ![batch_size](./assests/batch_size.png)
 
+## COCO Results
+![coco](./assests/coco.png)
+
 ## Author
 Junho Kim
