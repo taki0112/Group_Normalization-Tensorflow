@@ -1,5 +1,5 @@
 # Group_Normalization-Tensorflow
-Simple Tensorflow implementation of "Group Normalization"
+Simple Tensorflow implementation of [Group Normalization](https://arxiv.org/pdf/1803.08494.pdf)
 
 ## Usage
 ```python
