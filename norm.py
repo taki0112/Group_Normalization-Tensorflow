@@ -30,10 +30,8 @@ def group_norm(x, G=32, eps=1e-5, scope='group_norm') :
         mean, var = tf.nn.moments(x, [1, 2, 4], keep_dims=True)
         x = (x - mean) / tf.sqrt(var + eps)
 
-        gamma = tf.get_variable('gamma', [C],
-                                initializer=tf.constant_initializer(1.0))
-        beta = tf.get_variable('beta', [C],
-                               initializer=tf.constant_initializer(0.0))
+        gamma = tf.get_variable('gamma', [C], initializer=tf.constant_initializer(1.0))
+        beta = tf.get_variable('beta', [C], initializer=tf.constant_initializer(0.0))
         gamma = tf.reshape(gamma, [1, 1, 1, C])
         beta = tf.reshape(beta, [1, 1, 1, C])
 
