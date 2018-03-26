@@ -1,5 +1,27 @@
 # Group_Normalization-Tensorflow
-Simple Tensorflow implementation of "Group Normalization"
+Simple Tensorflow implementation of [Group Normalization](https://arxiv.org/pdf/1803.08494.pdf)
+
+
+## Code
+```python
+def group_norm(x, G=32, eps=1e-5, scope='group_norm') :
+    with tf.variable_scope(scope) :
+        N, H, W, C = x.get_shape().as_list()
+        G = min(G, C)
+
+        x = tf.reshape(x, [N, H, W, G, C // G])
+        mean, var = tf.nn.moments(x, [1, 2, 4], keep_dims=True)
+        x = (x - mean) / tf.sqrt(var + eps)
+
+        gamma = tf.get_variable('gamma', [C], initializer=tf.constant_initializer(1.0))
+        beta = tf.get_variable('beta', [C], initializer=tf.constant_initializer(0.0))
+        gamma = tf.reshape(gamma, [1, 1, 1, C])
+        beta = tf.reshape(beta, [1, 1, 1, C])
+
+        x = tf.reshape(x, [N, H, W, C]) * gamma + beta
+
+    return x
+```
 
 ## Usage
 ```python
@@ -20,6 +42,9 @@ from ops import *
 
 ### Sensitivity to batch sizes (ResNet 50)
 ![batch_size](./assests/batch_size.png)
+
+## COCO Results
+![coco](./assests/coco.png)
 
 ## Author
 Junho Kim
