@@ -45,5 +45,8 @@ from ops import *
 ## COCO Results
 ![coco](./assests/coco.png)
 
+## Related works
+* [Spectral Normalization-Tensorflow](https://github.com/taki0112/Spectral_Normalization-Tensorflow)
+
 ## Author
 Junho Kim
