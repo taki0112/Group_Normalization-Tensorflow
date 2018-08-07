@@ -1,6 +1,7 @@
 # Group_Normalization-Tensorflow
 Simple Tensorflow implementation of [Group Normalization](https://arxiv.org/pdf/1803.08494.pdf)
 
+## USE `tf.contrib.layers.group_norm` !!!
 
 ## Code
 ```python
